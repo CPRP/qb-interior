@@ -59,19 +59,38 @@ exports('CreateApartmentFurnished', function(spawn)
     return { objects, POIOffsets }
 end)
 
-exports('CreateHouseRobbery', function(spawn)
+-- exports('CreateHouseRobbery', function(spawn) --[[OLD QB-HOUSEROBBERY]]
+-- 	local objects = {}
+--     local POIOffsets = {}
+-- 	POIOffsets.exit = json.decode('{"x": 1.46, "y": -10.33, "z": 1.06, "h": 0.39}')
+-- 	DoScreenFadeOut(500)
+--     while not IsScreenFadedOut() do
+--         Wait(10)
+--     end
+-- 	RequestModel(`furnitured_midapart`)
+-- 	while not HasModelLoaded(`furnitured_midapart`) do
+-- 	    Wait(1000)
+-- 	end
+-- 	local house = CreateObject(`furnitured_midapart`, spawn.x, spawn.y, spawn.z, false, false, false)
+--     FreezeEntityPosition(house, true)
+--     objects[#objects+1] = house
+-- 	TeleportToInterior(spawn.x + POIOffsets.exit.x, spawn.y + POIOffsets.exit.y, spawn.z + POIOffsets.exit.z, POIOffsets.exit.h)
+--     return { objects, POIOffsets }
+-- end)
+
+exports('CreateHouseRobbery', function(spawn) --[[NEW QB-HOUSEROBBERY]]
 	local objects = {}
     local POIOffsets = {}
-	POIOffsets.exit = json.decode('{"x": 1.46, "y": -10.33, "z": 1.06, "h": 0.39}')
+	POIOffsets.exit = json.decode('{"x": 4.90, "y": 4.35, "z": 1.16, "h": 176.61}')
 	DoScreenFadeOut(500)
     while not IsScreenFadedOut() do
         Wait(10)
     end
-	RequestModel(`furnitured_midapart`)
-	while not HasModelLoaded(`furnitured_midapart`) do
+	RequestModel(`modernhotel_shell`)
+	while not HasModelLoaded(`modernhotel_shell`) do
 	    Wait(1000)
 	end
-	local house = CreateObject(`furnitured_midapart`, spawn.x, spawn.y, spawn.z, false, false, false)
+	local house = CreateObject(`modernhotel_shell`, spawn.x, spawn.y, spawn.z, false, false, false)
     FreezeEntityPosition(house, true)
     objects[#objects+1] = house
 	TeleportToInterior(spawn.x + POIOffsets.exit.x, spawn.y + POIOffsets.exit.y, spawn.z + POIOffsets.exit.z, POIOffsets.exit.h)
